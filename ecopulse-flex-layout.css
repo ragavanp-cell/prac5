@@ -1,0 +1,702 @@
+/* ==========================================================================
+   EcoPulse Carbon - Responsive CSS Flexbox Architecture & Sustainability Theme
+   ========================================================================== */
+
+:root {
+    --nav-bg: #1e1e1e;
+    --nav-active-bg: #111111;
+    --nav-hover-bg: #2b2b2b;
+    --btn-blue: #1a8cff;
+    --btn-blue-hover: #0073e6;
+    --eco-green: #10b981;
+    --eco-dark: #064e3b;
+    --bg-light: #f4f7f6;
+    --text-dark: #111827;
+    --text-muted: #4b5563;
+    --white: #ffffff;
+    --border-subtle: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   1. FLEXBOX NAVIGATION MENU (Matches Reference Layout Structure)
+   -------------------------------------------------------------------------- */
+.flex-navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--nav-bg);
+    color: var(--white);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 0;
+}
+
+.brand-icon {
+    font-size: 1.4rem;
+}
+
+.brand-title {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+}
+
+.brand-accent {
+    color: var(--eco-green);
+}
+
+.flex-nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    border: none;
+    color: #f3f4f6;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 1.15rem 1.35rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-item.active-dark .nav-link {
+    background-color: var(--nav-active-bg);
+    color: var(--white);
+}
+
+.chevron {
+    font-size: 1rem;
+    line-height: 1;
+    transform: translateY(-2px);
+}
+
+/* Dropdown Menu using Flexbox Column */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    background-color: var(--nav-active-bg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown.open .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-item {
+    color: #e5e7eb;
+    text-decoration: none;
+    padding: 0.95rem 1.35rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--nav-hover-bg);
+    color: var(--eco-green);
+    padding-left: 1.6rem;
+}
+
+/* Nav Auth Buttons (Log In / Sign Up) */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+.btn-login {
+    background-color: var(--btn-blue);
+    color: var(--white);
+    border: none;
+    padding: 0.55rem 1.15rem;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-login:hover {
+    background-color: var(--btn-blue-hover);
+}
+
+.btn-signup {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid #6b7280;
+    padding: 0.52rem 1.1rem;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-signup:hover {
+    border-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid #4b5563;
+    color: var(--white);
+    font-size: 1.35rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+    background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+    color: var(--white);
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.badge-pill {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.18);
+    color: #6ee7b7;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+
+.text-gradient {
+    color: #34d399;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: #d1d5db;
+    margin-bottom: 2rem;
+}
+
+.hero-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: var(--eco-green);
+    color: #062c22;
+    font-weight: 700;
+    padding: 0.85rem 1.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #34d399;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    font-weight: 600;
+    padding: 0.85rem 1.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.hero-stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 960px;
+    margin: 3.5rem auto 0;
+}
+
+.stat-card {
+    flex: 1 1 240px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    color: #34d399;
+    margin-bottom: 0.25rem;
+}
+
+.stat-card p {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   3. SECTIONS & CARBON CALCULATOR
+   -------------------------------------------------------------------------- */
+.section-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+}
+
+.calculator-section,
+.plans-section,
+.insights-section,
+.contact-section {
+    padding: 4.5rem 2rem;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.calculator-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-subtle);
+}
+
+.calc-inputs {
+    flex: 1 1 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input[type="range"] {
+    width: 100%;
+    accent-color: var(--eco-green);
+    cursor: pointer;
+}
+
+.calc-results {
+    flex: 1 1 300px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.result-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--eco-dark);
+    letter-spacing: 0.05em;
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--eco-dark);
+    margin: 0.5rem 0;
+}
+
+.result-value small {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.result-tip {
+    font-size: 0.9rem;
+    color: #065f46;
+    margin-bottom: 1.5rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. PLANS FLEX GRID (Freelancer, Startup, Enterprise)
+   -------------------------------------------------------------------------- */
+.plans-flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+    justify-content: center;
+}
+
+.plan-card {
+    flex: 1 1 310px;
+    background: var(--white);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.plan-card.featured {
+    border: 2px solid var(--eco-green);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.14);
+}
+
+.popular-tag {
+    position: absolute;
+    top: -13px;
+    right: 20px;
+    background: var(--eco-green);
+    color: #062c22;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+}
+
+.plan-tier {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.plan-price {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+}
+
+.plan-price span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.plan-desc {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.plan-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.plan-features li {
+    padding: 0.45rem 0;
+    font-size: 0.92rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--text-dark);
+    color: var(--text-dark);
+    padding: 0.8rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+    background: var(--text-dark);
+    color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   5. INSIGHTS & CONTACT
+   -------------------------------------------------------------------------- */
+.insights-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.insight-card {
+    flex: 1 1 300px;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+}
+
+.insight-card .tag {
+    display: inline-block;
+    background: #d1fae5;
+    color: #065f46;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    margin-bottom: 0.85rem;
+}
+
+.insight-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.65rem;
+}
+
+.insight-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 1.1rem;
+}
+
+.read-more {
+    color: #059669;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    background: var(--nav-bg);
+    color: var(--white);
+    padding: 3rem;
+    border-radius: 14px;
+}
+
+.contact-info {
+    flex: 1 1 340px;
+}
+
+.contact-info h2 {
+    font-size: 1.85rem;
+    margin-bottom: 0.85rem;
+}
+
+.contact-info p {
+    color: #d1d5db;
+    margin-bottom: 1.25rem;
+}
+
+.contact-form {
+    flex: 1 1 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.modal-card input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #374151;
+    background: #111827;
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-feedback {
+    font-size: 0.9rem;
+    color: #34d399;
+    min-height: 1.2rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. MODAL & FOOTER
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 1rem;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-card {
+    background: #1e1e1e;
+    color: var(--white);
+    padding: 2.25rem;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    background: #111111;
+    color: #9ca3af;
+    font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. RESPONSIVE FLEXBOX BREAKPOINTS (Mobile & Tablet)
+   -------------------------------------------------------------------------- */
+@media (max-width: 820px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .flex-nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+
+    .flex-nav-links.mobile-open {
+        display: flex;
+    }
+
+    .nav-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: #161616;
+    }
+
+    .nav-actions {
+        margin-left: 0;
+        padding: 0.75rem 1.35rem 0;
+    }
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPulse Carbon | Footprint Tracking & Reduction Services</title>
+    <link rel="stylesheet" href="ecopulse-flex-layout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Responsive Flexbox Navigation Menu (Inspired by Reference Layout) -->
+    <header class="flex-navbar-container">
+        <div class="nav-brand">
+            <span class="brand-icon">🌿</span>
+            <a href="#" class="brand-title">EcoPulse<span class="brand-accent">Carbon</span></a>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+            ☰
+        </button>
+
+        <nav class="flex-nav-links" id="flexNavLinks">
+            <!-- Blog Dropdown -->
+            <div class="nav-item dropdown">
+                <button class="nav-link dropdown-trigger" aria-expanded="false">
+                    Blog <span class="chevron">⌄</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#insights" class="dropdown-item">Scope 1, 2 & 3 Guides</a>
+                    <a href="#insights" class="dropdown-item">Net-Zero Case Studies</a>
+                    <a href="#insights" class="dropdown-item">Carbon Offset Audits</a>
+                </div>
+            </div>
+
+            <!-- Plans Dropdown (Exact visual inspiration: Freelancer / Startup / Enterprise) -->
+            <div class="nav-item dropdown active-dark">
+                <button class="nav-link dropdown-trigger" aria-expanded="false">
+                    Plans <span class="chevron">⌄</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#plans" class="dropdown-item" data-plan="Individual / Freelancer">Freelancer</a>
+                    <a href="#plans" class="dropdown-item" data-plan="Growth Startup">Startup</a>
+                    <a href="#plans" class="dropdown-item" data-plan="Global Enterprise">Enterprise</a>
+                </div>
+            </div>
+
+            <!-- Contact Link -->
+            <div class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <!-- Auth Action Buttons -->
+            <div class="nav-actions">
+                <button class="btn-login" onclick="openAuthModal('login')">Log In</button>
+                <button class="btn-signup" onclick="openAuthModal('signup')">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="badge-pill">ISO 14064 & GHG Protocol Certified</span>
+            <h1>Measure, Reduce & Verify Your <span class="text-gradient">Carbon Footprint</span></h1>
+            <p>Real-time emissions telemetry, automated supply-chain accounting, and verified carbon removal pathways for modern organizations.</p>
+            <div class="hero-cta-group">
+                <a href="#calculator" class="btn-primary">Calculate Footprint</a>
+                <a href="#plans" class="btn-secondary">Explore Reduction Plans</a>
+            </div>
+        </div>
+        <div class="hero-stats-grid">
+            <div class="stat-card">
+                <h3>2.4M+</h3>
+                <p>Metric Tons CO₂e Tracked</p>
+            </div>
+            <div class="stat-card">
+                <h3>38%</h3>
+                <p>Avg. First-Year Emission Cut</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Verified Removal Projects</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Carbon Footprint Estimator -->
+    <section id="calculator" class="calculator-section">
+        <div class="section-header">
+            <h2>Instant Operational Carbon Estimator</h2>
+            <p>Estimate your monthly CO₂e output across electricity, corporate travel, and cloud infrastructure.</p>
+        </div>
+        <div class="calculator-box">
+            <div class="calc-inputs">
+                <div class="input-group">
+                    <label for="electricityInput">Monthly Electricity Usage (kWh): <strong id="elecVal">5,000</strong></label>
+                    <input type="range" id="electricityInput" min="500" max="50000" step="500" value="5000">
+                </div>
+                <div class="input-group">
+                    <label for="flightsInput">Monthly Business Flight Hours: <strong id="flightVal">20</strong></label>
+                    <input type="range" id="flightsInput" min="0" max="200" step="5" value="20">
+                </div>
+                <div class="input-group">
+                    <label for="teamSizeInput">Team Size (Employees): <strong id="teamVal">45</strong></label>
+                    <input type="range" id="teamSizeInput" min="1" max="500" step="1" value="45">
+                </div>
+            </div>
+            <div class="calc-results">
+                <div class="result-label">Estimated Monthly Footprint</div>
+                <div class="result-value"><span id="totalCo2">6.84</span> <small>tCO₂e</small></div>
+                <p class="result-tip" id="reductionTip">Switching to 100% renewable energy tariffs could cut your footprint by 31%.</p>
+                <button class="btn-primary full-width" onclick="openAuthModal('audit')">Request Full GHG Audit</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section (Matching the Dropdown Tiers) -->
+    <section id="plans" class="plans-section">
+        <div class="section-header">
+            <h2>Carbon Tracking & Reduction Plans</h2>
+            <p>Tailored sustainability suites designed for independent consultants, fast-scaling startups, and global enterprises.</p>
+        </div>
+        <div class="plans-flex-grid">
+            <!-- Freelancer Tier -->
+            <div class="plan-card">
+                <div class="plan-tier">Freelancer</div>
+                <div class="plan-price">$19<span>/month</span></div>
+                <p class="plan-desc">Automated personal & remote-office footprint tracking with verified reforestation offsets.</p>
+                <ul class="plan-features">
+                    <li>✓ Home office & travel CO₂ tracker</li>
+                    <li>✓ Monthly Gold Standard offset certificates</li>
+                    <li>✓ Public "Climate Neutral" badge</li>
+                    <li>✓ Quarterly sustainability report</li>
+                </ul>
+                <button class="btn-outline" onclick="selectPlan('Freelancer')">Start Freelancer Plan</button>
+            </div>
+
+            <!-- Startup Tier -->
+            <div class="plan-card featured">
+                <div class="popular-tag">Most Popular</div>
+                <div class="plan-tier">Startup</div>
+                <div class="plan-price">$149<span>/month</span></div>
+                <p class="plan-desc">Complete Scope 1 & 2 accounting, cloud carbon telemetry, and team reduction roadmaps.</p>
+                <ul class="plan-features">
+                    <li>✓ Up to 100 employees & multi-office sync</li>
+                    <li>✓ AWS / GCP / Azure cloud emissions API</li>
+                    <li>✓ Custom decarbonization milestones</li>
+                    <li>✓ Investor-ready ESG disclosure PDF</li>
+                </ul>
+                <button class="btn-primary" onclick="selectPlan('Startup')">Start Startup Plan</button>
+            </div>
+
+            <!-- Enterprise Tier -->
+            <div class="plan-card">
+                <div class="plan-tier">Enterprise</div>
+                <div class="plan-price">Custom</div>
+                <p class="plan-desc">Full Scope 1, 2 & 3 supply-chain intelligence, ERP integration, and dedicated climate scientists.</p>
+                <ul class="plan-features">
+                    <li>✓ Unlimited suppliers & Scope 3 modeling</li>
+                    <li>✓ Science Based Targets (SBTi) validation</li>
+                    <li>✓ Direct air capture & biochar portfolios</li>
+                    <li>✓ 24/7 dedicated ESG audit support</li>
+                </ul>
+                <button class="btn-outline" onclick="selectPlan('Enterprise')">Book Enterprise Demo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog / Insights Section -->
+    <section id="insights" class="insights-section">
+        <div class="section-header">
+            <h2>Latest Climate Intelligence & Guides</h2>
+            <p>Actionable frameworks from our carbon accounting and decarbonization research team.</p>
+        </div>
+        <div class="insights-grid">
+            <article class="insight-card">
+                <span class="tag">Methodology</span>
+                <h3>Mastering Scope 3 Supply Chain Emissions in 2026</h3>
+                <p>How to transition from spend-based estimates to supplier-specific primary carbon data without slowing procurement.</p>
+                <a href="#contact" class="read-more">Read Technical Guide →</a>
+            </article>
+            <article class="insight-card">
+                <span class="tag">Reduction</span>
+                <h3>Green Cloud FinOps: Cutting Data Center CO₂ by 42%</h3>
+                <p>Workload shifting, carbon-aware scheduling, and regional grid intensity optimization for modern engineering teams.</p>
+                <a href="#contact" class="read-more">Read Case Study →</a>
+            </article>
+            <article class="insight-card">
+                <span class="tag">Compliance</span>
+                <h3>Preparing Your Balance Sheet for Mandatory ESG Audits</h3>
+                <p>A practical checklist for aligning internal carbon ledgers with international climate disclosure standards.</p>
+                <a href="#contact" class="read-more">Download Checklist →</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Partner With Our Climate Engineers</h2>
+                <p>Ready to baseline your organization's carbon footprint or verify your net-zero roadmap? Send us your details.</p>
+                <div class="contact-details">
+                    <p><strong>Email:</strong> advisory@ecopulsecarbon.io</p>
+                    <p><strong>Headquarters:</strong> GreenTech Hub, Suite 400</p>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Work Email" required>
+                <select id="planSelectField">
+                    <option value="Freelancer">Plan: Freelancer</option>
+                    <option value="Startup" selected>Plan: Startup</option>
+                    <option value="Enterprise">Plan: Enterprise</option>
+                </select>
+                <textarea rows="4" placeholder="Tell us about your sustainability goals..." required></textarea>
+                <button type="submit" class="btn-primary">Submit Inquiry</button>
+                <p id="formFeedback" class="form-feedback"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>© 2026 EcoPulse Carbon Services. Built with Responsive CSS Flexbox Architecture.</p>
+    </footer>
+
+    <!-- Modal for Log In / Sign Up -->
+    <div id="authModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeAuthModal()">✕</button>
+            <h3 id="modalTitle">Log In to EcoPulse Dashboard</h3>
+            <p id="modalSubtitle">Access your live emissions ledger and offset certificates.</p>
+            <form id="authForm">
+                <input type="email" placeholder="Work Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary full-width" id="modalSubmitBtn">Continue</button>
+            </form>
+            <p id="authFeedback" class="form-feedback"></p>
+        </div>
+    </div>
+
+    <script src="carbon-telemetry-engine.js"></script>
+</body>
+</html>
